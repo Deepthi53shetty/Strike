@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #f6d365, #fda085);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .profile-container {
+                background: rgba(255, 255, 255, 0.9);
+                max-width: 400px;
+                width: 100%;
+                padding: 2rem;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                text-align: center;
+                animation: fadeIn 1s ease-in-out;
+            }
+    
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            
+        }
+
+        .profile-info {
+            text-align: left;
+            margin-bottom: 1.5rem;
+             
+        }
+
+        .profile-info p {
+            font-size: 1rem;
+            color:rgb(12, 12, 11);
+            margin: 10px 0;
+        }
+
+        .profile-info p strong {
+            color:rgb(12, 12, 11);
+            font-weight: bold;
+        }
+
+        .logout-button {
+            background: linear-gradient(120deg, #f6d365, #fda085);
+            color: #333;
+            font-size: 1rem;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .logout-button:hover {
+            background: linear-gradient(120deg, #f6d365, #fda085);
+            color: #333;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .profile-container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .profile-info p {
+                font-size: 0.9rem;
+                color:rgb(12, 12, 11);
+            }
+
+            .logout-button {
+                padding: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>User Profile</h1>
+        {% if user %}
+            <div class="profile-info">
+                <p><strong>Name:</strong> {{ user.name }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Contact No:</strong> {{ user.c_no }}</p>
+                <p><strong>Location:</strong> {{ user.location }}</p>
+            </div>
+            <form action="{{ url_for('logout') }}" method="GET">
+                <button type="submit" class="logout-button">Logout</button>
+            </form>
+        {% else %}
+            <p>User not found.</p>
+        {% endif %}
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+
+</html>
+   

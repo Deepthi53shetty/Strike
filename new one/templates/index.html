@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strike Up</title>
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            body {
+                font-family: 'Arial', sans-serif;
+                line-height: 1.6;
+                background: linear-gradient(120deg, #f6d365, #fda085);
+                color: #333;
+            }
+    
+            header {
+                background: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+    
+            .container {
+                width: 90%;
+                max-width: 1200px;
+                margin: auto;
+            }
+    
+            .nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 0;
+            }
+    
+            .nav nav {
+                margin-left: auto;
+                display: flex;
+                gap: 15px;
+            }
+    
+            .nav a {
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+    
+            .nav a:hover {
+                color: #fda085;
+            }
+    
+            .hero {
+                text-align: center;
+                padding: 4rem 0;
+            }
+    
+            .hero h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+                color: #fff;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+    
+            .hero p {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                color: #fff;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            }
+    
+            .cta-button {
+                display: inline-block;
+                padding: 0.8rem 2rem;
+                background: #333;
+                color: #fff;
+                font-size: 1rem;
+                border-radius: 5px;
+                text-decoration: none;
+                transition: background 0.3s;
+            }
+    
+            .cta-button:hover {
+                background: #fda085;
+            }
+    
+            .features {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
+                margin: 4rem 0;
+            }
+    
+            .feature {
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                padding: 1.5rem;
+                transition: transform 0.3s;
+            }
+    
+            .feature:hover {
+                transform: translateY(-10px);
+            }
+    
+            .feature h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                color: #333;
+            }
+    
+            .feature p {
+                color: #666;
+            }
+    
+            footer {
+                text-align: center;
+                padding: 2rem 0;
+                background: #333;
+                color: #fff;
+                margin-top: 2rem;
+            }
+    
+            footer a {
+                color: #fda085;
+                text-decoration: none;
+            }
+        /* Your existing CSS styles */
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <h1>STRIKE UP</h1>
+            <nav>
+                <a href="#trade">Trade</a>
+                <a href="#analyse">Analyse</a>
+                <a href="#watchlist">Watchlist</a>
+                <a href="#positions">Positions</a>
+                <a href="#orders">Orders</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Strike Up</h1>
+            <p>Innovating Your Path to Success</p>
+            <a class="cta-button" href="{{ url_for('login') }}">Get Started</a>
+        </div>
+    </section>
+
+    <section id="trade" class="container">
+        <div class="features">
+            <div class="feature">
+                <h3>Trade</h3>
+                <p>Streamline your trading strategies with our advanced tools.</p>
+            </div>
+            <div class="feature">
+                <h3>Analyse</h3>
+                <p>Gain deep insights with real-time data analysis.</p>
+            </div>
+            <div class="feature">
+                <h3>Watchlist</h3>
+                <p>Monitor your favorite stocks and indices effortlessly.</p>
+            </div>
+            <div class="feature">
+                <h3>Positions</h3>
+                <p>Keep track of your open positions and performance.</p>
+            </div>
+            <div class="feature">
+                <h3>Orders</h3>
+                <p>Manage your orders efficiently and with precision.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Strike Up. All Rights Reserved. <a href="#">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>
