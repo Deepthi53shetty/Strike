@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout Confirmation</title>
+    <script>
+        function openLogoutWindow() {
+            let logoutWindow = window.open("", "Logout", "width=400,height=200");
+            logoutWindow.document.write(`
+                <html>
+                <head>
+                    <title>Logout</title>
+                    <style>
+                        body {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh;
+                            margin: 0;
+                            font-family: Arial, sans-serif;
+                            text-align: center;
+                        }
+                        .message {
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="message">You have been logged out successfully!</div>
+                </body>
+                </html>
+            `);
+
+            setTimeout(() => {
+                logoutWindow.close();
+                window.location.href = "/";
+            }, 5000); 
+        }
+    </script>
+</head>
+<body onload="openLogoutWindow()">
+</body>
+</html>
